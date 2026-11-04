@@ -1,0 +1,574 @@
+[
+  {
+    "id": "koffi-king",
+    "name": "Koffi King",
+    "barangayId": 3,
+    "barangayName": "Brgy 3",
+    "address": "144 Elepaño I Street, Barangay 3, Calamba.",
+    "landmark": "144 Elepaño I Street",
+    "priceRange": "Price not provided",
+    "minPrice": 0,
+    "maxPrice": 0,
+    "openingTime": "15:00",
+    "closingTime": "22:00",
+    "operatingHoursText": "3:00 PM - 10:00 PM",
+    "lat": 14.208912049403702,
+    "lng": 121.16246117758479,
+    "rating": 0,
+    "bannerImage": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80",
+    "description": "",
+    "daysOpen": "Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+    "reviewCount": 0,
+    "verified": true,
+    "galleryImages": ["/images/koffi-king.jpg"],
+    "navigationCount": 1,
+    "amenities": {
+      "wifiAvailable": false,
+      "wifiSpeedMbps": 0,
+      "wifiType": "Wi-Fi available",
+      "wifiPasswordProvided": false,
+      "outletCount": 1,
+      "outletCoveragePercent": "Available for customers",
+      "acAvailable": true,
+      "noiseLevel": "Moderate Social",
+      "seatingCapacity": 0,
+      "parkingInfo": "Street parking",
+      "paymentMethods": [
+        "Cash",
+        "GCash"
+      ],
+      "studyFriendlyScore": 3,
+      "verifiedDate": "September 2026",
+      "verifiedBy": "BrewBound Research Team"
+    },
+    "menu": [
+      {
+        "name": "House Coffee",
+        "price": 0,
+        "category": "Coffee",
+        "popular": true
+      },
+      {
+        "name": "Cafe Specialty",
+        "price": 0,
+        "category": "Signature"
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "id": "kutcherita-cafe",
+    "name": "Kutcherita Cafe",
+    "barangayId": 7,
+    "barangayName": "Brgy 7",
+    "address": "53 Juliano Street, Barangay 7, Calamba.",
+    "landmark": "53 Juliano Street",
+    "priceRange": "Price not provided",
+    "minPrice": 0,
+    "maxPrice": 0,
+    "openingTime": "17:00",
+    "closingTime": "03:00",
+    "operatingHoursText": "5:00 PM - 3:00 AM",
+    "lat": 14.212350414526703,
+    "lng": 121.16921436041049,
+    "rating": 0,
+    "bannerImage": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80",
+    "description": "",
+    "daysOpen": "Monday to Sunday",
+    "reviewCount": 0,
+    "verified": true,
+    "galleryImages": ["/images/kutcherita-cafe.jpg"],
+    "navigationCount": 0,
+    "amenities": {
+      "wifiAvailable": false,
+      "wifiSpeedMbps": 0,
+      "wifiType": "Wi-Fi available",
+      "wifiPasswordProvided": false,
+      "outletCount": 1,
+      "outletCoveragePercent": "Available for customers",
+      "acAvailable": false,
+      "noiseLevel": "Energetic & Busy",
+      "seatingCapacity": 0,
+      "parkingInfo": "Street parking",
+      "paymentMethods": [
+        "Cash",
+        "GCash"
+      ],
+      "studyFriendlyScore": 3,
+      "verifiedDate": "September 2026",
+      "verifiedBy": "BrewBound Research Team"
+    },
+    "menu": [
+      {
+        "name": "House Coffee",
+        "price": 0,
+        "category": "Coffee",
+        "popular": true
+      },
+      {
+        "name": "Cafe Specialty",
+        "price": 0,
+        "category": "Signature"
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "id": "the-sifted-cafe",
+    "name": "The Sifted Cafe",
+    "barangayId": 3,
+    "barangayName": "Brgy 3",
+    "address": "Chipeco Avenue, Barangay 3 Poblacion, Calamba City, Laguna",
+    "landmark": "Central Poblacion commercial zone",
+    "priceRange": "₱100 - ₱180",
+    "minPrice": 100,
+    "maxPrice": 180,
+    "openingTime": "10:00",
+    "closingTime": "22:00",
+    "operatingHoursText": "10:00 AM - 10:00 PM",
+    "lat": 14.2115,
+    "lng": 121.1605,
+    "rating": 4.3,
+    "bannerImage": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl137Ao820qPz9JLWZaOVrTsX-KjOwCtmGgnUxQsr0skccC2k-1ek9ZmDenX5MGzPpfYjZYi2hx9ouLbTvZgJfsTdGAAFYujqVnLAUl9J1NxMKwN_3q0UpkOYgiRKVCKwl2h1krSNzpm8AX=w1000-h1500-k-no",
+    "description": "",
+    "daysOpen": "Monday to Sunday",
+    "reviewCount": 0,
+    "verified": true,
+    "galleryImages": ["/images/sifted-cafe-front.jpg", "/images/sifted-cafe-interior.jpg"],
+    "navigationCount": 1,
+    "amenities": {
+      "wifiAvailable": false,
+      "wifiSpeedMbps": 0,
+      "wifiType": "Wi-Fi available",
+      "wifiPasswordProvided": false,
+      "outletCount": 0,
+      "outletCoveragePercent": "Available for customers",
+      "acAvailable": true,
+      "noiseLevel": "Quiet / Study-Friendly",
+      "seatingCapacity": 0,
+      "parkingInfo": "Street parking",
+      "paymentMethods": [
+        "Cash",
+        "GCash"
+      ],
+      "studyFriendlyScore": 5,
+      "verifiedDate": "September 2026",
+      "verifiedBy": "BrewBound Research Team"
+    },
+    "menu": [
+      {
+        "name": "House Coffee",
+        "price": 100,
+        "category": "Coffee",
+        "popular": true
+      },
+      {
+        "name": "Cafe Specialty",
+        "price": 140,
+        "category": "Signature"
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "id": "drip-and-grind-coffee",
+    "name": "Drip & Grind Coffee",
+    "barangayId": 4,
+    "barangayName": "Brgy 4",
+    "address": "49 P. Burgos Street, Poblacion, Calamba.",
+    "landmark": "49 P. Burgos Street",
+    "priceRange": "Price not provided",
+    "minPrice": 0,
+    "maxPrice": 0,
+    "openingTime": "10:00",
+    "closingTime": "22:00",
+    "operatingHoursText": "10:00 AM - 10:00 PM",
+    "lat": 14.210529677953971,
+    "lng": 121.16166628896626,
+    "rating": 0,
+    "bannerImage": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn_rfGl0MQIvop3TMe7R1lv-IfWXBw6GDUTk_jW9rdCf8BaZiaUf-jrYVBweZ27FKSaVkneyherX4d-ngGZvKkn3K78vRXrnItPosozFavlkuCHVlzFVTndPLJ2Bbt-irLlTTk=w1000-h1333-k-no",
+    "description": "",
+    "daysOpen": "Monday to Sunday",
+    "reviewCount": 0,
+    "verified": true,
+    "galleryImages": ["/images/drip-and-grind.jpg"],
+    "navigationCount": 2,
+    "amenities": {
+      "wifiAvailable": false,
+      "wifiSpeedMbps": 0,
+      "wifiType": "Wi-Fi available",
+      "wifiPasswordProvided": false,
+      "outletCount": 1,
+      "outletCoveragePercent": "Available for customers",
+      "acAvailable": true,
+      "noiseLevel": "Quiet / Study-Friendly",
+      "seatingCapacity": 0,
+      "parkingInfo": "Street parking",
+      "paymentMethods": [
+        "Cash",
+        "GCash"
+      ],
+      "studyFriendlyScore": 5,
+      "verifiedDate": "September 2026",
+      "verifiedBy": "BrewBound Research Team"
+    },
+    "menu": [
+      {
+        "name": "House Coffee",
+        "price": 105,
+        "category": "Coffee",
+        "popular": true
+      },
+      {
+        "name": "Cafe Specialty",
+        "price": 133,
+        "category": "Signature"
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "id": "moonbucks-bayan",
+    "name": "Moonbucks Coffee Shop - Bayan",
+    "barangayId": 3,
+    "barangayName": "Brgy 3",
+    "address": "Elefaño Street, Barangay 3 Poblacion, Calamba City, Laguna",
+    "landmark": "Elepano Subdivision and downtown Calamba commercial rows",
+    "priceRange": "₱98 - ₱175",
+    "minPrice": 98,
+    "maxPrice": 175,
+    "openingTime": "09:00",
+    "closingTime": "01:00",
+    "operatingHoursText": "9:00 AM - 1:00 AM",
+    "lat": 14.21,
+    "lng": 121.16,
+    "rating": 4.2,
+    "bannerImage": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnSSwug5zp9n86I2sJrxZ87UMofvae36rgxqUHvITK4hita9BZjQASj3ZMjuzRUFmq26Da4NjY3hxPaVz6CvU0y0KXvY6pNw9JEf9OmdNtJaVnfVqgtWAKl5w8odW6Qjh63HW-1xQ=w1500-h1000-k-no",
+    "description": "",
+    "daysOpen": "Monday to Sunday",
+    "reviewCount": 0,
+    "verified": true,
+    "galleryImages": ["/images/moonbucks-front.jpg", "/images/moonbucks-interior.jpg"],
+    "navigationCount": 1,
+    "amenities": {
+      "wifiAvailable": false,
+      "wifiSpeedMbps": 0,
+      "wifiType": "Wi-Fi available",
+      "wifiPasswordProvided": false,
+      "outletCount": 1,
+      "outletCoveragePercent": "Available for customers",
+      "acAvailable": true,
+      "noiseLevel": "Energetic & Busy",
+      "seatingCapacity": 0,
+      "parkingInfo": "Street parking",
+      "paymentMethods": [
+        "Cash",
+        "GCash"
+      ],
+      "studyFriendlyScore": 3,
+      "verifiedDate": "September 2026",
+      "verifiedBy": "BrewBound Research Team"
+    },
+    "menu": [
+      {
+        "name": "House Coffee",
+        "price": 98,
+        "category": "Coffee",
+        "popular": true
+      },
+      {
+        "name": "Cafe Specialty",
+        "price": 137,
+        "category": "Signature"
+      }
+    ],
+    "reviews": [],
+    "panorama360Url": ""
+  },
+  {
+    "id": "cafetribu-calamba",
+    "name": "Cafe Tribu - Calamba",
+    "barangayId": 3,
+    "barangayName": "Brgy 3",
+    "address": "Unit D, Estrella Building, Chipeco Avenue, Calamba.",
+    "landmark": "Unit D, Estrella Building, Chipeco Avenue",
+    "priceRange": "Price not provided",
+    "minPrice": 0,
+    "maxPrice": 0,
+    "openingTime": "09:00",
+    "closingTime": "22:00",
+    "operatingHoursText": "9:00 AM - 10:00 PM",
+    "lat": 14.206843775326796,
+    "lng": 121.161891776188,
+    "rating": 0,
+    "bannerImage": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnATWJ3RxyEh8-F9f82SnGtNweqb7E2zVXQlV3ndHFe6aDKXPNGJZqzlEed8bM5EqmeDQJNmHIXuHb-SBlC1nVHrhr84E8zP25pD_HBFfEJJKkj1wNulMRZSrrn0vxszOLcNCdijw=w1333-h1000-k-no",
+    "description": "",
+    "daysOpen": "Monday to Sunday",
+    "reviewCount": 0,
+    "verified": true,
+    "galleryImages": ["/images/cafe-tribu.jpg"],
+    "navigationCount": 0,
+    "amenities": {
+      "wifiAvailable": true,
+      "wifiSpeedMbps": 0,
+      "wifiType": "Wi-Fi available",
+      "wifiPasswordProvided": false,
+      "outletCount": 1,
+      "outletCoveragePercent": "Available for customers",
+      "acAvailable": true,
+      "noiseLevel": "Moderate Social",
+      "seatingCapacity": 0,
+      "parkingInfo": "Street parking",
+      "paymentMethods": [
+        "Cash",
+        "GCash"
+      ],
+      "studyFriendlyScore": 3,
+      "verifiedDate": "September 2026",
+      "verifiedBy": "BrewBound Research Team"
+    },
+    "menu": [
+      {
+        "name": "House Coffee",
+        "price": 110,
+        "category": "Coffee",
+        "popular": true
+      },
+      {
+        "name": "Cafe Specialty",
+        "price": 145,
+        "category": "Signature"
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "id": "the-outdoor-cafe",
+    "name": "The Outdoor Cafe",
+    "barangayId": 1,
+    "barangayName": "Brgy 1",
+    "address": "75 JP Rizal St, Calamba, 4027 Laguna",
+    "landmark": "75 JP Rizal Street",
+    "priceRange": "Price not provided",
+    "minPrice": 0,
+    "maxPrice": 0,
+    "openingTime": "15:00",
+    "closingTime": "23:00",
+    "operatingHoursText": "3:00 PM - 11:00 PM",
+    "lat": 14.209103806063021,
+    "lng": 121.15879100234267,
+    "rating": 0,
+    "bannerImage": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80",
+    "description": "",
+    "daysOpen": "Monday to Sunday",
+    "reviewCount": 0,
+    "verified": true,
+    "galleryImages": [],
+    "navigationCount": 0,
+    "amenities": {
+      "wifiAvailable": false,
+      "wifiSpeedMbps": 0,
+      "wifiType": "Wi-Fi available",
+      "wifiPasswordProvided": false,
+      "outletCount": 0,
+      "outletCoveragePercent": "Available for customers",
+      "acAvailable": false,
+      "noiseLevel": "Energetic & Busy",
+      "seatingCapacity": 0,
+      "parkingInfo": "Street parking",
+      "paymentMethods": [
+        "Cash",
+        "GCash"
+      ],
+      "studyFriendlyScore": 3,
+      "verifiedDate": "September 2026",
+      "verifiedBy": "BrewBound Research Team"
+    },
+    "menu": [
+      {
+        "name": "House Coffee",
+        "price": 0,
+        "category": "Coffee",
+        "popular": true
+      },
+      {
+        "name": "Cafe Specialty",
+        "price": 0,
+        "category": "Signature"
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "id": "for-coffee",
+    "name": "For: Coffee",
+    "barangayId": 5,
+    "barangayName": "Brgy 5",
+    "address": "216 General Lim Street, Barangay 5, Calamba.",
+    "landmark": "216 General Lim Street",
+    "priceRange": "Price not provided",
+    "minPrice": 0,
+    "maxPrice": 0,
+    "openingTime": "13:00",
+    "closingTime": "20:00",
+    "operatingHoursText": "1:00 PM - 8:00 PM",
+    "lat": 14.211949206822784,
+    "lng": 121.1668040598129,
+    "rating": 0,
+    "bannerImage": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80",
+    "description": "",
+    "daysOpen": "Monday to Sunday",
+    "reviewCount": 0,
+    "verified": true,
+    "galleryImages": [],
+    "navigationCount": 1,
+    "amenities": {
+      "wifiAvailable": false,
+      "wifiSpeedMbps": 0,
+      "wifiType": "Wi-Fi available",
+      "wifiPasswordProvided": false,
+      "outletCount": 0,
+      "outletCoveragePercent": "Available for customers",
+      "acAvailable": false,
+      "noiseLevel": "Moderate Social",
+      "seatingCapacity": 0,
+      "parkingInfo": "Street parking",
+      "paymentMethods": [
+        "Cash",
+        "GCash"
+      ],
+      "studyFriendlyScore": 3,
+      "verifiedDate": "September 2026",
+      "verifiedBy": "BrewBound Research Team"
+    },
+    "menu": [
+      {
+        "name": "House Coffee",
+        "price": 0,
+        "category": "Coffee",
+        "popular": true
+      },
+      {
+        "name": "Cafe Specialty",
+        "price": 0,
+        "category": "Signature"
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "id": "250-cafe",
+    "name": "250 Cafe",
+    "barangayId": 3,
+    "barangayName": "Brgy 3",
+    "address": "General Lim Street, Barangay 3 Poblacion, Calamba City, Laguna",
+    "landmark": "Old Public Market and Museo ni Jose Rizal",
+    "priceRange": "₱100 - ₱160",
+    "minPrice": 100,
+    "maxPrice": 160,
+    "openingTime": "11:00",
+    "closingTime": "21:00",
+    "operatingHoursText": "11:00 AM - 9:00 PM",
+    "lat": 14.209,
+    "lng": 121.1585,
+    "rating": 4.5,
+    "bannerImage": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnpw8w8EgQ2zN84SQT2km6yR2I6m3Fc1Shp1yXHRJewo2tGmCFtNalUYOX2Por-2eis9afgS7W_ymaiSxsZUYQblIurQQQl8a7GBf3JqlIP3wnIBOetUKJTmXUYMwgd3FsQ4PlP5w=w1000-h1333-k-no",
+    "description": "",
+    "daysOpen": "Monday to Sunday",
+    "reviewCount": 0,
+    "verified": true,
+    "galleryImages": ["/images/250-cafe-exterior.jpg", "/images/250-cafe-interior.jpg"],
+    "navigationCount": 1,
+    "amenities": {
+      "wifiAvailable": false,
+      "wifiSpeedMbps": 0,
+      "wifiType": "Wi-Fi available",
+      "wifiPasswordProvided": false,
+      "outletCount": 1,
+      "outletCoveragePercent": "Available for customers",
+      "acAvailable": true,
+      "noiseLevel": "Quiet / Study-Friendly",
+      "seatingCapacity": 0,
+      "parkingInfo": "Street parking",
+      "paymentMethods": [
+        "Cash",
+        "GCash"
+      ],
+      "studyFriendlyScore": 5,
+      "verifiedDate": "September 2026",
+      "verifiedBy": "BrewBound Research Team"
+    },
+    "menu": [
+      {
+        "name": "House Coffee",
+        "price": 100,
+        "category": "Coffee",
+        "popular": true
+      },
+      {
+        "name": "Cafe Specialty",
+        "price": 130,
+        "category": "Signature"
+      }
+    ],
+    "reviews": [],
+    "panorama360Url": "/images/250-cafe-panorama.jpg"
+  },
+  {
+    "id": "dose-dos-cafe",
+    "name": "Dose Dos Cafe",
+    "barangayId": 7,
+    "barangayName": "Brgy 7",
+    "address": "46 Barreto Street, Barangay 7, Calamba.",
+    "landmark": "46 Barreto Street",
+    "priceRange": "Price not provided",
+    "minPrice": 0,
+    "maxPrice": 0,
+    "openingTime": "10:00",
+    "closingTime": "22:00",
+    "operatingHoursText": "10:00 AM - 10:00 PM",
+    "lat": 14.212614633130158,
+    "lng": 121.1676064577713,
+    "rating": 0,
+    "bannerImage": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80",
+    "description": "",
+    "daysOpen": "Monday to Sunday",
+    "reviewCount": 0,
+    "verified": true,
+    "galleryImages": ["/images/dose-dos-cafe.jpg"],
+    "navigationCount": 1,
+    "amenities": {
+      "wifiAvailable": false,
+      "wifiSpeedMbps": 0,
+      "wifiType": "Wi-Fi available",
+      "wifiPasswordProvided": false,
+      "outletCount": 1,
+      "outletCoveragePercent": "Available for customers",
+      "acAvailable": true,
+      "noiseLevel": "Moderate Social",
+      "seatingCapacity": 0,
+      "parkingInfo": "Street parking",
+      "paymentMethods": [
+        "Cash",
+        "GCash"
+      ],
+      "studyFriendlyScore": 3,
+      "verifiedDate": "September 2026",
+      "verifiedBy": "BrewBound Research Team"
+    },
+    "menu": [
+      {
+        "name": "House Coffee",
+        "price": 0,
+        "category": "Coffee",
+        "popular": true
+      },
+      {
+        "name": "Cafe Specialty",
+        "price": 0,
+        "category": "Signature"
+      }
+    ],
+    "reviews": []
+  }
+]

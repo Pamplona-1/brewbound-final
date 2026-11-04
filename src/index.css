@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+.coffee-shop-theme {
+  --color-white: #fffaf3;
+
+  --color-slate-50: #fbf8f3;
+  --color-slate-100: #f5efe5;
+  --color-slate-200: #e8ddcf;
+  --color-slate-300: #d7c6b3;
+  --color-slate-400: #bca58d;
+  --color-slate-500: #9e8268;
+  --color-slate-600: #80654f;
+  --color-slate-700: #674e3e;
+  --color-slate-800: #4f3a30;
+  --color-slate-900: #352820;
+  --color-slate-950: #241a16;
+
+  --color-amber-50: #faf2e9;
+  --color-amber-100: #f2e0cd;
+  --color-amber-200: #e5c4a4;
+  --color-amber-300: #d5a77f;
+  --color-amber-400: #c38e6a;
+  --color-amber-500: #b8855c;
+  --color-amber-600: #965f41;
+  --color-amber-700: #7b4b36;
+  --color-amber-800: #613b30;
+  --color-amber-900: #492e29;
+  --color-amber-950: #30211f;
+
+  --color-rose-50: #f8eeee;
+  --color-rose-100: #f1dddd;
+  --color-rose-200: #e5c2c2;
+  --color-rose-300: #d39a9a;
+  --color-rose-400: #bd7777;
+  --color-rose-500: #ab5c5c;
+  --color-rose-600: #934b4b;
+  --color-rose-700: #7b3d3d;
+  --color-rose-800: #633333;
+  --color-rose-900: #4c2929;
+  --color-rose-950: #331b1b;
+
+  --color-red-50: #f8eeee;
+  --color-red-100: #f1dddd;
+  --color-red-200: #e5c2c2;
+  --color-red-600: #934b4b;
+  --color-red-700: #7b3d3d;
+
+  --color-emerald-50: #f5f4e9;
+  --color-emerald-100: #e9e7d0;
+  --color-emerald-400: #b8b17b;
+  --color-emerald-500: #9d965f;
+  --color-emerald-600: #817a4c;
+  --color-emerald-700: #68623e;
+  --color-emerald-800: #514d34;
+
+  --color-blue-50: #f5f4e9;
+  --color-blue-100: #e9e7d0;
+  --color-blue-200: #d9d4ad;
+  --color-blue-300: #c9c18f;
+  --color-blue-400: #b8b17b;
+  --color-blue-500: #9d965f;
+  --color-blue-600: #817a4c;
+  --color-blue-700: #68623e;
+  --color-blue-800: #514d34;
+  --color-blue-900: #3e3b2b;
+  --color-blue-950: #29271e;
+
+  --color-sky-50: #f5f4e9;
+  --color-sky-500: #9d965f;
+  --color-sky-700: #68623e;
+  --color-sky-800: #514d34;
+
+  --color-orange-100: #f2e0cd;
+  --color-orange-700: #7b4b36;
+  --color-purple-600: #965f41;
+  --color-purple-700: #7b4b36;
+}
+
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+/* Fix global container bounds */
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Custom leaflet tweaks and canvas height guarantees */
+.leaflet-container {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  z-index: 10;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  background-color: #f1f5f9 !important;
+}
+
+.coffee-shop-theme .leaflet-container {
+  background-color: #fbf8f3 !important;
+}
+
+.custom-shop-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.custom-user-marker,
+.custom-live-user-marker,
+.custom-admin-pin {
+  background: transparent !important;
+  border: none !important;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
