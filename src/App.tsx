@@ -335,8 +335,6 @@ export default function App() {
     minWifiSpeed: 0,
     requireAC: false,
     openNowOnly: false,
-    priceCategory: 'all',
-    noiseLevel: 'all',
   });
 
   const [navigationState, setNavigationState] = useState<NavigationState>({
@@ -463,13 +461,6 @@ export default function App() {
       }
 
       if (filters.openNowOnly && !isShopOpen(shop.openingTime, shop.closingTime, shop.daysOpen)) {
-        return false;
-      }
-
-      if (filters.priceCategory === 'budget' && shop.minPrice > 98) return false;
-      if (filters.priceCategory === 'premium' && shop.minPrice <= 99) return false;
-
-      if (filters.noiseLevel !== 'all' && shop.amenities.noiseLevel !== filters.noiseLevel) {
         return false;
       }
 
@@ -647,8 +638,6 @@ export default function App() {
       minWifiSpeed: 0,
       requireAC: false,
       openNowOnly: false,
-      priceCategory: 'all',
-      noiseLevel: 'all',
     });
   };
 

@@ -111,8 +111,6 @@ export interface FilterState {
   minWifiSpeed: number;
   requireAC: boolean;
   openNowOnly: boolean;
-  priceCategory: 'all' | 'budget' | 'mid' | 'premium'; // budget <=98, premium >99
-  noiseLevel: 'all' | 'Quiet / Study-Friendly' | 'Moderate Social';
 }
 
 export interface IsoEvaluationResponse {

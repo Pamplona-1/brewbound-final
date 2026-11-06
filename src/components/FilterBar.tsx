@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FilterState } from '../types';
 import { BARANGAYS_LIST } from '../data/calambaLandmarks';
-import { Search, Zap, Wifi, Snowflake, MapPin, Clock, X, SlidersHorizontal, ChevronDown } from 'lucide-react';
+import { Search, Zap, Wifi, Snowflake, MapPin, Clock, X, ChevronDown } from 'lucide-react';
 
 interface FilterBarProps {
   filters: FilterState;
@@ -16,17 +16,13 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   onResetFilters,
   resultCount,
 }) => {
-  const [showAdvancedModal, setShowAdvancedModal] = useState(false);
-
   const hasActiveFilters =
     filters.searchQuery !== '' ||
     filters.barangay !== 'all' ||
     filters.requireOutlets ||
     filters.requireWifi ||
     filters.requireAC ||
-    filters.openNowOnly ||
-    filters.priceCategory !== 'all' ||
-    filters.noiseLevel !== 'all';
+    filters.openNowOnly;
 
   return (
     <div className="bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 py-3 sticky top-0 z-20 shadow-xs">
@@ -122,15 +118,6 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           <span>Open Now</span>
         </button>
 
-        {/* More Filters Toggle */}
-        <button
-          onClick={() => setShowAdvancedModal(true)}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg font-medium whitespace-nowrap bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200 transition-colors"
-        >
-          <SlidersHorizontal className="w-3.5 h-3.5" />
-          <span>More</span>
-        </button>
-
         {/* Reset Filter Button */}
         {hasActiveFilters && (
           <button
@@ -155,105 +142,6 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         )}
       </div>
 
-      {/* Advanced Filter Modal */}
-      {showAdvancedModal && (
-        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-sm w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
-              <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <SlidersHorizontal className="w-4 h-4 text-amber-600" />
-                Refine Search Filters
-              </h3>
-              <button
-                onClick={() => setShowAdvancedModal(false)}
-                className="p-1 text-slate-400 hover:text-slate-600 rounded-lg"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="space-y-4 text-sm">
-              {/* Noise Level */}
-              <div>
-                <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
-                  Atmosphere & Noise Level
-                </label>
-                <div className="grid grid-cols-2 gap-2 text-xs">
-                  <button
-                    onClick={() => onFilterChange({ noiseLevel: 'all' })}
-                    className={`py-2 px-3 rounded-lg border text-center font-medium ${filters.noiseLevel === 'all'
-                      ? 'bg-amber-600 text-white border-amber-600'
-                      : 'bg-slate-50 text-slate-700 border-slate-200'
-                      }`}
-                  >
-                    Any Atmosphere
-                  </button>
-                  <button
-                    onClick={() => onFilterChange({ noiseLevel: 'Quiet / Study-Friendly' })}
-                    className={`py-2 px-3 rounded-lg border text-center font-medium ${filters.noiseLevel === 'Quiet / Study-Friendly'
-                      ? 'bg-amber-600 text-white border-amber-600'
-                      : 'bg-slate-50 text-slate-700 border-slate-200'
-                      }`}
-                  >
-                    🤫 Quiet & Study
-                  </button>
-                </div>
-              </div>
-
-              {/* Price Tier */}
-              <div>
-                <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
-                  Price Tier
-                </label>
-                <div className="grid grid-cols-3 gap-2 text-xs">
-                  <button
-                    onClick={() => onFilterChange({ priceCategory: 'all' })}
-                    className={`py-2 rounded-lg border font-medium ${filters.priceCategory === 'all'
-                      ? 'bg-amber-600 text-white border-amber-600'
-                      : 'bg-slate-50 text-slate-700 border-slate-200'
-                      }`}
-                  >
-                    All
-                  </button>
-                  <button
-                    onClick={() => onFilterChange({ priceCategory: 'budget' })}
-                    className={`py-2 rounded-lg border font-medium ${filters.priceCategory === 'budget'
-                      ? 'bg-amber-600 text-white border-amber-600'
-                      : 'bg-slate-50 text-slate-700 border-slate-200'
-                      }`}
-                  >
-                    Budget (≤ ₱98)
-                  </button>
-                  <button
-                    onClick={() => onFilterChange({ priceCategory: 'premium' })}
-                    className={`py-2 rounded-lg border font-medium ${filters.priceCategory === 'premium'
-                      ? 'bg-amber-600 text-white border-amber-600'
-                      : 'bg-slate-50 text-slate-700 border-slate-200'
-                      }`}
-                  >
-                    Expensive (&gt; ₱99)
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6 pt-3 border-t border-slate-100 flex gap-2">
-              <button
-                onClick={onResetFilters}
-                className="flex-1 py-2 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors"
-              >
-                Reset All
-              </button>
-              <button
-                onClick={() => setShowAdvancedModal(false)}
-                className="flex-1 py-2 text-xs font-semibold text-white bg-amber-600 hover:bg-amber-700 rounded-xl shadow-xs transition-colors"
-              >
-                Apply Filters
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
