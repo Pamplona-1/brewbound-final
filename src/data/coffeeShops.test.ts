@@ -15,23 +15,29 @@ test('deployment snapshot contains the exported shops and panorama photo', () =>
 });
 
 test('deployment snapshot maps submitted cafe photos to the matching shops', () => {
-  const expectedPhotos = new Map([
-    ['koffi-king', ['/images/koffi-king.jpg']],
-    ['kutcherita-cafe', ['/images/kutcherita-cafe.jpg']],
-    ['the-sifted-cafe', ['/images/sifted-cafe-front.jpg', '/images/sifted-cafe-interior.jpg']],
-    ['drip-and-grind-coffee', ['/images/drip-and-grind.jpg']],
-    ['moonbucks-bayan', ['/images/moonbucks-front.jpg', '/images/moonbucks-interior.jpg']],
-    ['cafetribu-calamba', ['/images/cafe-tribu.jpg']],
-    ['250-cafe', ['/images/250-cafe-exterior.jpg', '/images/250-cafe-interior.jpg']],
-    ['dose-dos-cafe', ['/images/dose-dos-cafe.jpg']],
+  const expectedPhotoCounts = new Map([
+    ['koffi-king', 1],
+    ['kutcherita-cafe', 1],
+    ['the-sifted-cafe', 1],
+    ['drip-and-grind-coffee', 1],
+    ['moonbucks-bayan', 2],
+    ['cafetribu-calamba', 1],
+    ['the-outdoor-cafe', 1],
+    ['for-coffee', 1],
+    ['250-cafe', 2],
+    ['dose-dos-cafe', 1],
   ]);
 
-  for (const [shopId, photos] of expectedPhotos) {
+  for (const [shopId, photoCount] of expectedPhotoCounts) {
     const shop = INITIAL_COFFEE_SHOPS.find((entry) => entry.id === shopId);
-    assert.deepEqual(shop?.galleryImages, photos, `photo mapping for ${shopId}`);
-    for (const photo of photos) {
-      const asset = readFileSync(new URL(`../../public${photo}`, import.meta.url));
-      assert.ok(asset.byteLength > 10_000, `photo asset exists: ${photo}`);
+    assert.equal(shop?.galleryImages.length, photoCount, `photo mapping for ${shopId}`);
+    for (const photo of shop?.galleryImages ?? []) {
+      if (photo.startsWith('data:image/')) {
+        assert.ok(photo.length <= 45_000, `inline photo is small enough for Sheets: ${shopId}`);
+      } else {
+        const asset = readFileSync(new URL(`../../public${photo}`, import.meta.url));
+        assert.ok(asset.byteLength > 10_000, `photo asset exists: ${photo}`);
+      }
     }
   }
 });

@@ -26,6 +26,32 @@ const parseSheetBoolean = (value: unknown): boolean | undefined => {
     return undefined;
 };
 
+const normalizeOperatingTime = (
+    value: unknown,
+    operatingHoursText: unknown,
+    timeIndex: number,
+): string | undefined => {
+    if (typeof value === 'string' && /^\d{2}:\d{2}$/.test(value)) return value;
+
+    if (typeof operatingHoursText === 'string') {
+        const times = [...operatingHoursText.matchAll(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/gi)];
+        const match = times[timeIndex];
+        if (match) {
+            let hour = Number(match[1]);
+            const minute = Number(match[2] ?? 0);
+            if (match[3].toUpperCase() === 'AM' && hour === 12) hour = 0;
+            if (match[3].toUpperCase() === 'PM' && hour !== 12) hour += 12;
+            return `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+        }
+    }
+
+    if (typeof value === 'string') {
+        const isoTime = value.match(/T(\d{2}:\d{2})/);
+        if (isoTime) return isoTime[1];
+    }
+    return undefined;
+};
+
 export const normalizeSheetCoffeeShop = (
     shop: Record<string, unknown> & Pick<CoffeeShop, 'id'>,
 ): SheetCoffeeShop => {
@@ -92,6 +118,11 @@ export const normalizeSheetCoffeeShop = (
             }
         }
     }
+
+    const openingTime = normalizeOperatingTime(normalized.openingTime, normalized.operatingHoursText, 0);
+    const closingTime = normalizeOperatingTime(normalized.closingTime, normalized.operatingHoursText, 1);
+    if (openingTime) normalized.openingTime = openingTime;
+    if (closingTime) normalized.closingTime = closingTime;
 
     if (typeof normalized.verified === 'string') {
         normalized.verified = ['true', '1', 'yes'].includes(normalized.verified.toLowerCase());

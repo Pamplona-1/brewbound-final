@@ -78,3 +78,15 @@ test('normalizeSheetCoffeeShop maps explicit location and filter columns to app 
         wifiAvailable: true,
     });
 });
+
+test('normalizeSheetCoffeeShop converts Google Sheets date times to editable time inputs', () => {
+    const normalized = normalizeSheetCoffeeShop({
+        id: 'cafe-5',
+        openingTime: '1899-12-30T07:00:00.000Z',
+        closingTime: '1899-12-30T14:00:00.000Z',
+        operatingHoursText: '3:00 PM - 10:00 PM',
+    });
+
+    assert.equal(normalized.openingTime, '15:00');
+    assert.equal(normalized.closingTime, '22:00');
+});

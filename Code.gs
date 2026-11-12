@@ -8,11 +8,17 @@ const REQUIRED_HEADERS = [
   'rating', 'reviewCount', 'verified', 'navigationCount', 'phone', 'socials',
   'amenities', 'menu', 'reviews', 'recordVersion',
 ];
+const HIDDEN_HEADERS = [
+  'description', 'minPrice', 'maxPrice', 'openingTime', 'closingTime', 'lat', 'lng',
+  'rating', 'reviewCount', 'verified', 'navigationCount', 'phone', 'socials',
+  'reviews', 'recordVersion',
+];
 
 function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu('BrewBound')
     .addItem('Clean Sheet Layout', 'cleanupSheetLayout')
+    .addItem('Hide Unneeded Columns', 'hideUnneededColumns')
     .addToUi();
 }
 
@@ -63,7 +69,25 @@ function cleanupSheetLayout() {
   if (rows.length > 0) {
     sheet.getRange(2, 1, rows.length, REQUIRED_HEADERS.length).setValues(rows);
   }
+  applyHiddenColumns(sheet);
+}
 
+function hideUnneededColumns() {
+  applyHiddenColumns(getOrCreateSheet());
+}
+
+function applyHiddenColumns(sheet) {
+  const headers = sheet.getRange(1, 1, 1, REQUIRED_HEADERS.length).getValues()[0].map(String);
+  HIDDEN_HEADERS.forEach(function(header) {
+    const index = headers.indexOf(header);
+    if (index !== -1) sheet.hideColumns(index + 1);
+  });
+
+  const extraColumnsStart = REQUIRED_HEADERS.length + 1;
+  const extraColumnsCount = Math.min(5, sheet.getMaxColumns() - REQUIRED_HEADERS.length);
+  if (extraColumnsCount > 0) {
+    sheet.hideColumns(extraColumnsStart, extraColumnsCount);
+  }
 }
 
 function doGet(e) {
@@ -177,6 +201,7 @@ function ensureSheetSchema(sheet) {
     if (hasDerivedColumnUpdates) {
       sheet.getRange(2, 1, rows.length, REQUIRED_HEADERS.length).setValues(rows);
     }
+    applyHiddenColumns(sheet);
     return sheet;
   }
 
@@ -187,6 +212,7 @@ function ensureSheetSchema(sheet) {
   sheet.clearContents();
   sheet.getRange(1, 1, 1, REQUIRED_HEADERS.length).setValues([REQUIRED_HEADERS]);
   if (rows.length > 0) sheet.getRange(2, 1, rows.length, REQUIRED_HEADERS.length).setValues(rows);
+  applyHiddenColumns(sheet);
   return sheet;
 }
 
