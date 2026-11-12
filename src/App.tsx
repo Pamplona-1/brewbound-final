@@ -81,7 +81,11 @@ const mergeSheetShop = (
     ? sheetShop.galleryImages
     : localShop?.galleryImages ?? fallbackShop.galleryImages ?? [],
   panorama360Url: sheetShop.panorama360Url || localShop?.panorama360Url || fallbackShop.panorama360Url,
-  amenities: sheetShop.amenities ?? localShop?.amenities ?? fallbackShop.amenities,
+  amenities: {
+    ...fallbackShop.amenities,
+    ...localShop?.amenities,
+    ...sheetShop.amenities,
+  },
   menu: sheetShop.menu ?? localShop?.menu ?? fallbackShop.menu,
   reviews: sheetShop.reviews ?? localShop?.reviews ?? fallbackShop.reviews,
 });

@@ -4,7 +4,8 @@ const REQUIRED_HEADERS = [
   'id', 'name', 'barangayId', 'barangayName', 'address', 'landmark', 'priceRange',
   'operatingHoursText', 'daysOpen', 'bannerImage', 'galleryImage1', 'galleryImage2',
   'panorama360Url', 'description', 'minPrice', 'maxPrice', 'openingTime', 'closingTime',
-  'lat', 'lng', 'rating', 'reviewCount', 'verified', 'navigationCount', 'phone', 'socials',
+  'lat', 'lng', 'latitude', 'longitude', 'airconAvailable', 'socketAvailable', 'wifiAvailable',
+  'rating', 'reviewCount', 'verified', 'navigationCount', 'phone', 'socials',
   'amenities', 'menu', 'reviews', 'recordVersion',
 ];
 
@@ -166,14 +167,63 @@ function ensureSheetSchema(sheet) {
     return existingHeaders[index] === header;
   });
 
-  if (headerMatches && REQUIRED_HEADERS.length === existingHeaders.length) return sheet;
+  if (headerMatches && REQUIRED_HEADERS.length === existingHeaders.length) {
+    const rows = values.slice(1).map(function(row) {
+      return fillDerivedColumns(row);
+    });
+    const hasDerivedColumnUpdates = rows.some(function(row, index) {
+      return JSON.stringify(row) !== JSON.stringify(values[index + 1]);
+    });
+    if (hasDerivedColumnUpdates) {
+      sheet.getRange(2, 1, rows.length, REQUIRED_HEADERS.length).setValues(rows);
+    }
+    return sheet;
+  }
 
-  const rows = remapRowsToRequiredHeaders(values);
+  const rows = remapRowsToRequiredHeaders(values).map(function(row) {
+    return fillDerivedColumns(row);
+  });
 
   sheet.clearContents();
   sheet.getRange(1, 1, 1, REQUIRED_HEADERS.length).setValues([REQUIRED_HEADERS]);
   if (rows.length > 0) sheet.getRange(2, 1, rows.length, REQUIRED_HEADERS.length).setValues(rows);
   return sheet;
+}
+
+function fillDerivedColumns(row) {
+  const result = row.slice();
+  const latitudeIndex = REQUIRED_HEADERS.indexOf('latitude');
+  const longitudeIndex = REQUIRED_HEADERS.indexOf('longitude');
+  const lat = result[REQUIRED_HEADERS.indexOf('lat')];
+  const lng = result[REQUIRED_HEADERS.indexOf('lng')];
+  if (result[latitudeIndex] === '' && lat !== '') result[latitudeIndex] = lat;
+  if (result[longitudeIndex] === '' && lng !== '') result[longitudeIndex] = lng;
+
+  let amenities = {};
+  const rawAmenities = result[REQUIRED_HEADERS.indexOf('amenities')];
+  if (rawAmenities && typeof rawAmenities === 'string') {
+    try {
+      amenities = JSON.parse(rawAmenities);
+    } catch (error) {
+      console.warn('Could not parse shop amenities while filling sheet columns:', error);
+    }
+  } else if (rawAmenities && typeof rawAmenities === 'object') {
+    amenities = rawAmenities;
+  }
+
+  const airconIndex = REQUIRED_HEADERS.indexOf('airconAvailable');
+  const socketIndex = REQUIRED_HEADERS.indexOf('socketAvailable');
+  const wifiIndex = REQUIRED_HEADERS.indexOf('wifiAvailable');
+  if (result[airconIndex] === '' && amenities.acAvailable !== undefined) {
+    result[airconIndex] = Boolean(amenities.acAvailable);
+  }
+  if (result[socketIndex] === '' && amenities.outletCount !== undefined) {
+    result[socketIndex] = Number(amenities.outletCount) > 0;
+  }
+  if (result[wifiIndex] === '' && amenities.wifiAvailable !== undefined) {
+    result[wifiIndex] = Boolean(amenities.wifiAvailable);
+  }
+  return result;
 }
 
 function readShops(sheet) {

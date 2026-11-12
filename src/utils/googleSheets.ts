@@ -11,10 +11,20 @@ const NUMERIC_SHEET_FIELDS = [
     'maxPrice',
     'lat',
     'lng',
+    'latitude',
+    'longitude',
     'rating',
     'reviewCount',
     'navigationCount',
 ] as const;
+
+const parseSheetBoolean = (value: unknown): boolean | undefined => {
+    if (typeof value === 'boolean') return value;
+    if (typeof value !== 'string' || value.trim() === '') return undefined;
+    if (['true', '1', 'yes'].includes(value.toLowerCase())) return true;
+    if (['false', '0', 'no'].includes(value.toLowerCase())) return false;
+    return undefined;
+};
 
 export const normalizeSheetCoffeeShop = (
     shop: Record<string, unknown> & Pick<CoffeeShop, 'id'>,
@@ -31,6 +41,38 @@ export const normalizeSheetCoffeeShop = (
             }
         }
     }
+
+    if (normalized.latitude !== undefined && normalized.latitude !== '') {
+        const latitude = Number(normalized.latitude);
+        if (Number.isFinite(latitude)) normalized.lat = latitude;
+    }
+    if (normalized.longitude !== undefined && normalized.longitude !== '') {
+        const longitude = Number(normalized.longitude);
+        if (Number.isFinite(longitude)) normalized.lng = longitude;
+    }
+    delete normalized.latitude;
+    delete normalized.longitude;
+
+    const amenityValues = normalized.amenities && typeof normalized.amenities === 'object'
+        ? { ...normalized.amenities as Record<string, unknown> }
+        : {};
+    const airconAvailable = parseSheetBoolean(normalized.airconAvailable);
+    const socketAvailable = parseSheetBoolean(normalized.socketAvailable);
+    const wifiAvailable = parseSheetBoolean(normalized.wifiAvailable);
+    if (airconAvailable !== undefined) amenityValues.acAvailable = airconAvailable;
+    if (socketAvailable !== undefined) {
+        const currentOutletCount = Number(amenityValues.outletCount ?? 0);
+        amenityValues.outletCount = socketAvailable
+            ? Math.max(1, Number.isFinite(currentOutletCount) ? currentOutletCount : 0)
+            : 0;
+    }
+    if (wifiAvailable !== undefined) amenityValues.wifiAvailable = wifiAvailable;
+    if (airconAvailable !== undefined || socketAvailable !== undefined || wifiAvailable !== undefined) {
+        normalized.amenities = amenityValues;
+    }
+    delete normalized.airconAvailable;
+    delete normalized.socketAvailable;
+    delete normalized.wifiAvailable;
 
     const firstGalleryImage = normalized.galleryImage1;
     const secondGalleryImage = normalized.galleryImage2;
@@ -60,7 +102,7 @@ export const normalizeSheetCoffeeShop = (
 };
 
 // Paste the deployed Apps Script web app URL here (the URL ending in /exec).
-export const GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0x2c8YGXx_P7rB9oMVivg6EjlW7P0V2LS9UMakl5HKNbVjYuAjhue9J8YJ0d7nljaKg/exec';
+export const GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyC6ZJgUpDOio3OLrQviwJ320iH4Bf0Ty-ht88g5W0JMD-bg5rp5MwteEeyRYN9ANf6BQ/exec';
 
 interface CoffeeShopResponse {
     success: boolean;
@@ -87,6 +129,11 @@ const toSheetCoffeeShop = (shop: CoffeeShop): SheetRow => {
         closingTime: shop.closingTime,
         lat: shop.lat,
         lng: shop.lng,
+        latitude: shop.lat,
+        longitude: shop.lng,
+        airconAvailable: shop.amenities.acAvailable,
+        socketAvailable: shop.amenities.outletCount > 0,
+        wifiAvailable: shop.amenities.wifiAvailable,
         rating: shop.rating,
         reviewCount: shop.reviewCount,
         verified: shop.verified,

@@ -57,3 +57,24 @@ test('normalizeSheetCoffeeShop preserves intentional photo clearing', () => {
     assert.deepEqual(normalized.galleryImages, []);
     assert.equal(normalized.panorama360Url, '');
 });
+
+test('normalizeSheetCoffeeShop maps explicit location and filter columns to app fields', () => {
+    const normalized = normalizeSheetCoffeeShop({
+        id: 'cafe-4',
+        latitude: '14.2135',
+        longitude: '121.1642',
+        airconAvailable: 'TRUE',
+        socketAvailable: false,
+        wifiAvailable: true,
+        amenities: JSON.stringify({ outletCount: 6, wifiSpeedMbps: 45 }),
+    });
+
+    assert.equal(normalized.lat, 14.2135);
+    assert.equal(normalized.lng, 121.1642);
+    assert.deepEqual(normalized.amenities, {
+        outletCount: 0,
+        wifiSpeedMbps: 45,
+        acAvailable: true,
+        wifiAvailable: true,
+    });
+});
